@@ -34,6 +34,6 @@ For the curious, here's what powers this website:
 ```yaml
 Platform: Hugo Static Site Generator
 Theme: LoveIt (heavily customized)
-Deployment: Netlify
+Deployment: Vercel
 Styling: Custom CSS + Theme defaults
 Content: Markdown with Hugo shortcodes
