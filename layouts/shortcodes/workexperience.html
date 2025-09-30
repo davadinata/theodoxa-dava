@@ -1,0 +1,53 @@
+<section class="work-experience-section">
+    <div class="projects-section-header">
+        <h2>Work Experience</h2>
+    </div>
+    
+    <div class="work-cards-grid">
+        {{ $workData := .Site.Data.workexperience }}
+        {{ if $workData }}
+            {{ range $workData.experiences }}
+            <div class="work-card">
+                <div class="work-card-header">
+                    <div class="company-info">
+                        <h3 class="company-name">{{ .company }}</h3>
+                        <span class="position">{{ .position }}</span>
+                    </div>
+                    <div class="work-meta">
+                        <span class="period">{{ .period }}</span>
+                        <span class="location">{{ .location }}</span>
+                    </div>
+                </div>
+                
+                <p class="work-description">{{ .description }}</p>
+                
+                {{ if .technologies }}
+                <div class="work-technologies">
+                    <strong>Technologies Used:</strong>
+                    <div class="tech-pills">
+                        {{ range .technologies }}
+                        <span class="tech-pill">{{ . }}</span>
+                        {{ end }}
+                    </div>
+                </div>
+                {{ end }}
+                
+                {{ if .achievements }}
+                <div class="work-achievements">
+                    <strong>Key Achievements:</strong>
+                    <ul class="achievements-list">
+                        {{ range .achievements }}
+                        <li>{{ . }}</li>
+                        {{ end }}
+                    </ul>
+                </div>
+                {{ end }}
+            </div>
+            {{ end }}
+        {{ else }}
+            <div class="no-data">
+                <p>Work experience data is currently being updated.</p>
+            </div>
+        {{ end }}
+    </div>
+</section>

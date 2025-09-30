@@ -1,0 +1,26 @@
+featured_projects:
+  # - title: "Address Book"
+  #   description: "A responsive contact management system with local storage persistence."
+  #   technologies: ["JavaScript", "Tailwind CSS", "LocalStorage", "Responsive Design"]
+  #   status: "completed"
+  #   image: "/images/projects/address-book.jpg"
+  #   url: "/projects/address-book"
+  #   github: "https://github.com/davadinata/address-book"
+  #   live_demo: "https://addressbook.theodoxa.dev"
+
+  # - title: "Kanban Board"
+  #   description: "Drag-and-drop task management system inspired by Kanban methodology."
+  #   technologies: ["React", "Drag and Drop", "Tailwind CSS", "State Management"]
+  #   status: "completed"
+  #   image: "/images/projects/kanban-board.jpg"
+  #   url: "/projects/kanban-board"
+  #   github: "https://github.com/davadinata/kanban-board"
+  #   live_demo: "https://kanban.theodoxa.dev"
+
+  - title: "Andi Global Soft"
+    description: "Reinsert content of Andi GLobal Soft company profile website."
+    technologies: ["PHP", "HTML", "Company Profile", "Responsive Design"]
+    status: "completed"
+    image: "/images/projects/ags.png" 
+    url: "/projects/ags"
+    live_demo: "https://www.andiglobalsoft.com/"

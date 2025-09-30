@@ -1,0 +1,46 @@
+<section class="featured-projects">
+    <div class="projects-section-header">
+        <h2>Featured Projects</h2>
+        <p class="projects-subtitle">Check out some of my recent work.</p>
+    </div>
+    
+    <div class="projects-grid-cards">
+        {{ range .Site.Data.projects.featured_projects }}
+        <div class="project-card-item">
+            <!-- Tambahkan project image -->
+            {{ if .image }}
+            <div class="project-image">
+                <img src="{{ .image }}" alt="{{ .title }}" loading="lazy">
+            </div>
+            {{ end }}
+            
+            <div class="project-card-content">
+                <h3 class="project-title">{{ .title }}</h3>
+                <p class="project-description">{{ .description }}</p>
+                
+                <div class="project-technologies">
+                    {{ range .technologies }}
+                    <span class="tech-pill">{{ . }}</span>
+                    {{ end }}
+                </div>
+                
+                <div class="project-actions">
+                    {{ if .live_demo }}
+                    <a href="{{ .live_demo }}" class="project-btn primary" target="_blank" rel="noopener">
+                        Live Demo
+                    </a>
+                    {{ end }}
+                    {{ if .github }}
+                    <a href="{{ .github }}" class="project-btn secondary" target="_blank" rel="noopener">
+                        GitHub
+                    </a>
+                    {{ end }}
+                    <a href="{{ .url }}" class="project-btn outline">
+                        View Detail
+                    </a>
+                </div>
+            </div>
+        </div>
+        {{ end }}
+    </div>
+</section>

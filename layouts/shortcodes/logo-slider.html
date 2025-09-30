@@ -1,0 +1,30 @@
+<section class="skills-slider-section">
+    <div class="section-header">
+        <h2>Tech Stack & Tools</h2>
+        <p class="section-subtitle">Technologies I work with</p>
+    </div>
+    
+    <div class="slider-container">
+        <div class="slider-track">
+            <!-- First set -->
+            {{ range .Site.Data.skills.skills }}
+            <div class="slide-item">
+                <a href="{{ .url }}" target="_blank" rel="noopener" class="skill-logo">
+                    <img src="{{ .logo }}" alt="{{ .name }}" loading="lazy">
+                    <span class="skill-name">{{ .name }}</span>
+                </a>
+            </div>
+            {{ end }}
+            
+            <!-- Duplicate set for seamless loop -->
+            {{ range .Site.Data.skills.skills }}
+            <div class="slide-item">
+                <a href="{{ .url }}" target="_blank" rel="noopener" class="skill-logo">
+                    <img src="{{ .logo }}" alt="{{ .name }}" loading="lazy">
+                    <span class="skill-name">{{ .name }}</span>
+                </a>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</section>

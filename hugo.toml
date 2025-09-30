@@ -10,7 +10,7 @@ theme = "LoveIt"
 
 # website title
 
-title = "dav3"
+title = "Theodoxa"
 
 
 
@@ -25,12 +25,6 @@ languageName = "English, 简体中文"
 # whether to include Chinese/Japanese/Korean
 
 hasCJKLanguage = true
-
-
-
-# copyright description used only for seo schema
-
-copyright = ""
 
 
 
@@ -97,15 +91,15 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
 
     weight = 2
 
-    identifier = "post"
+    identifier = "me"
 
     pre = ""
 
     post = ""
 
-    name = "Journey"
+    name = "About"
 
-    url = "/post/"
+    url = "/me/"
 
     title = ""
 
@@ -113,15 +107,15 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
 
     weight = 3
 
-    identifier = "projects"
+    identifier = "posts"
 
     pre = ""
 
-    post = ""
+    post = "" 
 
-    name = "Projects"
+    name = "Journey"
 
-    url = "/projects/"
+    url = "/posts/"
 
     title = ""
 
@@ -129,15 +123,15 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
 
     weight = 4
 
-    identifier = "me"
+    identifier = "contact"
 
     pre = ""
 
     post = ""
 
-    name = "Me"
+    name = "Contact"
 
-    url = "/me/"
+    url = "/contact/"
 
     title = ""
 
@@ -327,6 +321,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
 
     tileColor = "#da532c"
 
+    favicon = "/favicon.png"
 
 
   #  Search config
@@ -960,10 +955,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     [params.page.library]
 
       [params.page.library.css]
-
-        # someCSS = "some.css"
-
-        # located in "assets/"
+        custom = "css/custom.css"
 
         # Or
 
