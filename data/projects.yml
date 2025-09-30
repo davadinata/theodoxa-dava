@@ -18,8 +18,8 @@ featured_projects:
   #   live_demo: "https://kanban.theodoxa.dev"
 
   - title: "Andi Global Soft"
-    description: "Reinsert content of Andi GLobal Soft company profile website."
-    technologies: ["PHP", "HTML", "Company Profile", "Responsive Design"]
+    description: "Reinsert content of Andi Global Soft company profile website."
+    technologies: ["PHP", "HTML", "Company Profile"]
     status: "completed"
     image: "/images/projects/ags.png" 
     url: "/projects/ags"

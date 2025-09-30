@@ -1,8 +1,8 @@
 experiences:
   - company: "DataOn"
     position: "Implementation Consultant - Junior"
-    period: "March 3rd, 2025 - Present"
-    location: "Jakarta, Indonesia"
+    period: "March 3, 2025 – Present"
+    location: "Tangerang Selatan, Indonesia"
     description: "Implementing and customizing business solutions for clients, providing technical support, and ensuring successful system deployments."
     technologies: ["ColdFusion", "MariaDB", "Go", "React"]
     achievements:
@@ -12,7 +12,7 @@ experiences:
 
   - company: "Andi GLobal Soft"
     position: "Full Stack Developer"
-    period: "May 10th - Sep 10th 2024 (4 months)"
+    period: "May 10 – Sep 10, 2023 (4 months)"
     location: "DI Yogyakarta, Indonesia"
     description: "Assisted in developing and maintaining web applications, participated in agile development processes."
     technologies: ["PHP", "HTML/CSS", "Javascript", "Codeigniter"]

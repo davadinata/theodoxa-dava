@@ -234,6 +234,169 @@
     font-size: 0.95rem !important;
 }
 
+/* Light mode*/
+/* ===== FIX FOR LIGHT MODE VISIBILITY ===== */
+
+/* Nuclear option - force all text to be visible in light mode */
+[data-theme="light"] {
+  color: #000000 !important;
+}
+
+[data-theme="light"] body {
+  color: #000000 !important;
+  background: #ffffff !important;
+}
+
+/* Force all headings to be dark in light mode */
+[data-theme="light"] h1,
+[data-theme="light"] h2, 
+[data-theme="light"] h3,
+[data-theme="light"] h4,
+[data-theme="light"] h5,
+[data-theme="light"] h6 {
+  color: #000000 !important;
+}
+
+/* Force all paragraphs and text to be dark */
+[data-theme="light"] p,
+[data-theme="light"] span,
+[data-theme="light"] div,
+[data-theme="light"] li {
+  color: #333333 !important;
+}
+
+/* Specific fixes for work experience section */
+[data-theme="light"] .work-experience-section,
+[data-theme="light"] .work-card,
+[data-theme="light"] .work-card * {
+  color: #333333 !important;
+  background: #ffffff !important;
+}
+
+[data-theme="light"] .work-card h3.company-name {
+  color: #000000 !important;
+  font-weight: 700;
+}
+
+[data-theme="light"] .work-card .position {
+  background: #667eea !important;
+  color: #ffffff !important;
+}
+
+[data-theme="light"] .work-card .work-description {
+  color: #444444 !important;
+  line-height: 1.6;
+}
+
+[data-theme="light"] .work-card strong {
+  color: #000000 !important;
+  font-weight: 700;
+}
+
+[data-theme="light"] .work-card .achievements-list li {
+  color: #444444 !important;
+}
+
+[data-theme="light"] .work-meta .period,
+[data-theme="light"] .work-meta .location {
+  color: #666666 !important;
+  background: #f5f5f5 !important;
+  border: 1px solid #dddddd !important;
+}
+
+/* Fix for project cards */
+[data-theme="light"] .project-card-item,
+[data-theme="light"] .project-card-item * {
+  color: #333333 !important;
+  background: #ffffff !important;
+}
+
+[data-theme="light"] .project-title {
+  color: #000000 !important;
+}
+
+[data-theme="light"] .project-description {
+  color: #444444 !important;
+}
+
+[data-theme="light"] .tech-pill,
+[data-theme="light"] .tech-tag {
+  background: #667eea !important;
+  color: #ffffff !important;
+  border: none !important;
+}
+
+/* Fix for buttons */
+[data-theme="light"] .project-btn.outline {
+  border-color: #667eea !important;
+  color: #667eea !important;
+  background: transparent !important;
+}
+
+[data-theme="light"] .project-btn.outline:hover {
+  background: #667eea !important;
+  color: #ffffff !important;
+}
+
+/* Force all section headers */
+[data-theme="light"] .section-header h2 {
+  color: #000000 !important;
+}
+
+[data-theme="light"] .section-subtitle {
+  color: #666666 !important;
+}
+
+/* Fix for main content area */
+[data-theme="light"] .main {
+  color: #333333 !important;
+}
+
+[data-theme="light"] .content {
+  color: #333333 !important;
+}
+
+/* Fix for any card-like elements */
+[data-theme="light"] [class*="card"],
+[data-theme="light"] [class*="box"],
+[data-theme="light"] [class*="container"] {
+  color: #333333 !important;
+  background: #ffffff !important;
+}
+
+/* Direct target tech pills */
+/* Perbaikan ukuran tech pills */
+.tech-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem !important; /* Kurangi gap */
+  margin-bottom: 1.5rem;
+}
+
+.tech-pill {
+  padding: 0.3rem 0.7rem !important; /* Kurangi padding */
+  border-radius: 12px !important;
+  font-size: 0.8rem !important; /* Perkecil font */
+  font-weight: 500;
+  background: #6b7280 !important;
+  color: white !important;
+  border: none !important;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+/* Untuk light mode */
+[data-theme="light"] .tech-pill {
+  background: #6b7280 !important;
+  color: white !important;
+}
+
+/* Untuk dark mode */
+[data-theme="dark"] .tech-pill {
+  background: #6b7280 !important;
+  color: white !important;
+}
+
 /* Skills Logo Slider */
 .skills-slider-section {
     margin: 4rem 0;
