@@ -6,7 +6,7 @@ type: "home"
 <div style="text-align: center;">
 
 
-_"A web developer in progress with growing expertise in data and information systems."_
+_“Passionate about building web applications and exploring the world of data.”_
 
 </div>
 

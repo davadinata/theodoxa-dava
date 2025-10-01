@@ -396,7 +396,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
 
       # subtitle shown in home page (HTML format is supported)
 
-      subtitle = "Tech Enthusiast | Developer in Progress"
+      subtitle = "Web & Data Enthusiast | Lifelong Learner"
 
       # whether to use typeit animation for subtitle
 
