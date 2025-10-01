@@ -16,10 +16,10 @@ Starting this website feels like opening a new chapter in my developer journey. 
 
 I chose **Hugo** as the foundation for this site after exploring several options. Here's why it stood out:
 
-- **⚡ Blazing Fast**: As a static site generator, Hugo creates incredibly fast-loading pages
-- **🛠️ Developer-Friendly**: Written in Go, with a straightforward structure and great documentation
-- **🎨 Flexible Theming**: The LoveIt theme provided a beautiful starting point that I could customize
-- **📝 Markdown Simplicity**: Writing content in Markdown feels natural and efficient
+- **Blazing Fast**: As a static site generator, Hugo creates incredibly fast-loading pages
+- **Developer-Friendly**: Written in Go, with a straightforward structure and great documentation
+- **Flexible Theming**: The LoveIt theme provided a beautiful starting point that I could customize
+- **Markdown Simplicity**: Writing content in Markdown feels natural and efficient
 
 The process of setting up Hugo reminded me why I love web development—there's something satisfying about seeing your vision come to life through code.
 

@@ -872,6 +872,38 @@
     font-weight: 500;
 }
 
+/* Tech Pills dengan Icons */
+.tech-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: #6b7280 !important;
+    color: white !important;
+    padding: 0.3rem 0.7rem !important;
+    border-radius: 12px !important;
+    font-size: 0.8rem !important;
+    font-weight: 500;
+    border: none !important;
+    line-height: 1.2;
+}
+
+.tech-pill i {
+    font-size: 0.7rem;
+    opacity: 0.9;
+}
+
+/* Light mode */
+[data-theme="light"] .tech-pill {
+    background: #6b7280 !important;
+    color: white !important;
+}
+
+/* Dark mode */
+[data-theme="dark"] .tech-pill {
+    background: #6b7280 !important;
+    color: white !important;
+}
+
 /* Work Achievements */
 .work-achievements {
     margin-bottom: 0;

@@ -1,6 +1,7 @@
 <section class="work-experience-section">
-    <div class="projects-section-header">
+    <div class="section-header">
         <h2>Work Experience</h2>
+        <p class="section-subtitle">My professional journey</p>
     </div>
     
     <div class="work-cards-grid">
@@ -26,7 +27,10 @@
                     <strong>Technologies Used:</strong>
                     <div class="tech-pills">
                         {{ range .technologies }}
-                        <span class="tech-pill">{{ . }}</span>
+                        <span class="tech-pill">
+                            <i class="{{ .icon }}"></i>
+                            {{ .name }}
+                        </span>
                         {{ end }}
                     </div>
                 </div>

@@ -4,7 +4,15 @@ experiences:
     period: "Mar 2025 – Present"
     location: "Tangerang Selatan, Indonesia"
     description: "Implementing and customizing business solutions for clients, providing technical support, and ensuring successful system deployments."
-    technologies: ["ColdFusion", "MariaDB", "Go", "React"]
+    technologies: 
+      - name: "ColdFusion"
+        icon: "fas fa-code"
+      - name: "MariaDB" 
+        icon: "fas fa-database"
+      - name: "Go"
+        icon: "fab fa-golang"
+      - name: "React"
+        icon: "fab fa-react"
     achievements:
       - "Implemented HRIS systems for 5+ clients"
       - "Reduced deployment time by 30% through process optimization"
@@ -15,7 +23,15 @@ experiences:
     period: "May – Sep 2023 (4 months)"
     location: "DI Yogyakarta, Indonesia"
     description: "Assisted in developing and maintaining web applications, and participated in agile development processes."
-    technologies: ["PHP", "HTML/CSS", "JavaScript", "CodeIgniter"]
+    technologies:
+      - name: "PHP"
+        icon: "fab fa-php"
+      - name: "HTML/CSS"
+        icon: "fab fa-html5"
+      - name: "JavaScript"
+        icon: "fab fa-js-square"
+      - name: "CodeIgniter"
+        icon: "fas fa-fire"  # Fallback untuk CodeIgniter
     achievements:
       - "Rebuilt company profile website"
       - "Contributed to internal tools development (Bahana Digital)"
@@ -26,7 +42,17 @@ experiences:
     period: "2022 – Present"
     location: "Remote"
     description: "Developed responsive websites and web applications for various clients across different industries."
-    technologies: ["PHP", "Laravel", "CodeIgniter", "MySQL", "Tailwind CSS"]
+    technologies:
+      - name: "PHP"
+        icon: "fab fa-php"
+      - name: "Laravel"
+        icon: "fab fa-laravel"
+      - name: "CodeIgniter"
+        icon: "fas fa-fire"
+      - name: "MySQL"
+        icon: "fas fa-database"
+      - name: "Tailwind CSS"
+        icon: "fab fa-css3-alt"
     achievements:
       - "Delivered 5+ projects with 100% client satisfaction"
       - "Improved website performance by 40% through optimization"

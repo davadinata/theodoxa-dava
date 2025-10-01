@@ -956,7 +956,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
 
       [params.page.library.css]
         custom = "css/custom.css"
-
+        fontawesome = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         # Or
 
         # someCSS = "https://cdn.example.com/some.css"
