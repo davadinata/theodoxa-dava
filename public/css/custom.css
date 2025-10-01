@@ -103,7 +103,7 @@
 }
 
 .tech-pill {
-    background: linear-gradient(135deg, var(--primary-color), #292A2D);
+    background: linear-gradient(135deg, var(--primary-color), #232426);
     color: white;
     padding: 0.5rem 1rem;
     border-radius: 20px;
@@ -279,7 +279,7 @@
 }
 
 [data-theme="light"] .work-card .position {
-  background: #292A2D !important;
+  background: #232426 !important;
   color: #000000 !important;
 }
 
@@ -321,20 +321,20 @@
 
 [data-theme="light"] .tech-pill,
 [data-theme="light"] .tech-tag {
-  background: #292A2D !important;
+  background: #232426 !important;
   color: #ffffff !important;
   border: none !important;
 }
 
 /* Fix for buttons */
 [data-theme="light"] .project-btn.outline {
-  border-color: #292A2D !important;
-  color: #292A2D !important;
+  border-color: #232426 !important;
+  color: #232426 !important;
   background: transparent !important;
 }
 
 [data-theme="light"] .project-btn.outline:hover {
-  background: #292A2D !important;
+  background: #232426 !important;
   color: #ffffff !important;
 }
 
@@ -378,7 +378,7 @@
   border-radius: 12px !important;
   font-size: 0.8rem !important; /* Perkecil font */
   font-weight: 500;
-  background: #292A2D !important;
+  background: #232426 !important;
   color: white !important;
   border: none !important;
   line-height: 1.2;
@@ -387,13 +387,13 @@
 
 /* Untuk light mode */
 [data-theme="light"] .tech-pill {
-  background: #292A2D !important;
+  background: #232426 !important;
   color: white !important;
 }
 
 /* Untuk dark mode */
 [data-theme="dark"] .tech-pill {
-  background: #292A2D !important;
+  background: #232426 !important;
   color: white !important;
 }
 
@@ -788,7 +788,7 @@
 
 /* Fix untuk position badge di work experience */
 .position {
-  background: #292A2D  !important; /* Indigo-600 - elegant dan professional */
+  background: #232426  !important; /* Indigo-600 - elegant dan professional */
   color: white !important;
   padding: 0.3rem 0.8rem !important;
   border-radius: 6px !important;
@@ -800,25 +800,25 @@
 
 /* Force warna di light mode */
 [data-theme="light"] .position {
-  background: #292A2D  !important;
+  background: #232426  !important;
   color: white !important;
 }
 
 /* Force warna di dark mode */
 [data-theme="dark"] .position {
-  background: #292A2D  !important;
+  background: #232426  !important;
   color: white !important;
 }
 
 /* Specific untuk work card position */
 .work-card .position {
-  background: #292A2D  !important;
+  background: #232426  !important;
   color: white !important;
 }
 
 /* Nuclear option - target semua element dengan class position */
 [class*="position"] {
-  background: #292A2D  !important;
+  background: #232426  !important;
   color: white !important;
 }
 
@@ -864,7 +864,7 @@
 }
 
 .tech-pill {
-    background: linear-gradient(135deg, var(--primary-color), #292A2D);
+    background: linear-gradient(135deg, var(--primary-color), #232426);
     color: white;
     padding: 0.4rem 0.8rem;
     border-radius: 15px;
@@ -877,7 +877,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    background: #6b7280 !important;
+    background: #232426 !important;
     color: white !important;
     padding: 0.3rem 0.7rem !important;
     border-radius: 12px !important;
@@ -894,13 +894,13 @@
 
 /* Light mode */
 [data-theme="light"] .tech-pill {
-    background: #6b7280 !important;
+    background: #232426 !important;
     color: white !important;
 }
 
 /* Dark mode */
 [data-theme="dark"] .tech-pill {
-    background: #6b7280 !important;
+    background: #232426 !important;
     color: white !important;
 }
 
@@ -1158,25 +1158,25 @@
 
 /* Fix button di light mode */
 [data-theme="light"] .submit-btn {
-    background: #292A2D !important; /* Force primary color */
+    background: #232426 !important; /* Force primary color */
     color: white !important;
     border: none !important;
 }
 
 [data-theme="light"] .submit-btn:hover {
-    background: #5a67d8 !important; /* Sedikit lebih dark untuk hover */
+    background: #232426 !important; /* Sedikit lebih dark untuk hover */
     color: white !important;
 }
 
 /* Nuclear option - force button colors di semua theme */
 .submit-btn {
-    background: #292A2D !important;
+    background: #232426 !important;
     color: white !important;
     border: none !important;
 }
 
 .submit-btn:hover {
-    background: #5a67d8 !important;
+    background: #3d3e41 !important;
     color: white !important;
 }
 
@@ -1184,7 +1184,7 @@
 [data-theme="light"] .submit-btn,
 [data-theme="dark"] .submit-btn,
 .submit-btn {
-    background: #292A2D !important;
+    background: #232426 !important;
     color: white !important;
 }
 
