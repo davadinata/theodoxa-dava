@@ -952,3 +952,239 @@
 .work-card.internship::before {
     background: #45B7D1;
 }
+
+/* Contact Split Layout - Compact */
+.contact-split-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    align-items: start;
+    margin: 2rem 0;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-info-side,
+.contact-form-side {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    height: fit-content;
+}
+
+.contact-info-content h2,
+.contact-form-content h2 {
+    color: var(--heading-color);
+    margin-bottom: 0.75rem;
+    font-size: 1.4rem;
+}
+
+.contact-info-content p,
+.contact-form-content p {
+    color: var(--content-color);
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+/* Contact Details Styling - Compact */
+.contact-details {
+    margin-top: 1rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.contact-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.contact-icon {
+    font-size: 1.1rem;
+    margin-top: 0.1rem;
+    flex-shrink: 0;
+}
+
+/* Make contact items single line */
+.contact-text {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.contact-text strong {
+    display: inline; /* Ubah dari block ke inline */
+    margin-bottom: 0;
+    margin-right: 0.5rem;
+}
+
+.contact-text span,
+.contact-text a {
+    display: inline;
+}
+
+/* Map Container Styling */
+.map-container {
+    margin-top: 1rem;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+}
+
+.map-container iframe {
+    display: block;
+    border: none;
+}
+
+/* Light mode map fixes */
+[data-theme="light"] .map-container {
+    border-color: #e0e0e0;
+}
+
+/* Contact Form Styling - Compact */
+.contact-form {
+    margin-top: 1rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+    color: var(--heading-color);
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: var(--body-bg);
+    color: var(--content-color);
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+    max-height: 140px;
+}
+
+.submit-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.submit-btn:hover {
+    background: var(--primary-color-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+/* Light Mode Fixes */
+[data-theme="light"] .contact-info-side,
+[data-theme="light"] .contact-form-side {
+    background: #ffffff;
+    border-color: #e0e0e0;
+}
+
+[data-theme="light"] .contact-info-content h2,
+[data-theme="light"] .contact-form-content h2 {
+    color: #000000;
+}
+
+[data-theme="light"] .contact-text strong {
+    color: #000000;
+}
+
+[data-theme="light"] .contact-item {
+    border-bottom-color: #e0e0e0;
+}
+
+[data-theme="light"] .form-group input,
+[data-theme="light"] .form-group textarea {
+    background: #f8f9fa;
+    border-color: #e0e0e0;
+    color: #333333;
+}
+
+[data-theme="light"] .form-group label {
+    color: #000000;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .contact-split-layout {
+        gap: 2rem;
+    }
+    
+    .contact-info-side,
+    .contact-form-side {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-split-layout {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .contact-info-side,
+    .contact-form-side {
+        padding: 1.25rem;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    
+    .contact-item {
+        margin-bottom: 1.25rem;
+        padding-bottom: 1rem;
+    }
+}
