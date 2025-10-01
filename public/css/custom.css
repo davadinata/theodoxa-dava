@@ -103,7 +103,7 @@
 }
 
 .tech-pill {
-    background: linear-gradient(135deg, var(--primary-color), #667eea);
+    background: linear-gradient(135deg, var(--primary-color), #292A2D);
     color: white;
     padding: 0.5rem 1rem;
     border-radius: 20px;
@@ -279,7 +279,7 @@
 }
 
 [data-theme="light"] .work-card .position {
-  background: #667eea !important;
+  background: #292A2D !important;
   color: #000000 !important;
 }
 
@@ -321,20 +321,20 @@
 
 [data-theme="light"] .tech-pill,
 [data-theme="light"] .tech-tag {
-  background: #667eea !important;
+  background: #292A2D !important;
   color: #ffffff !important;
   border: none !important;
 }
 
 /* Fix for buttons */
 [data-theme="light"] .project-btn.outline {
-  border-color: #667eea !important;
-  color: #667eea !important;
+  border-color: #292A2D !important;
+  color: #292A2D !important;
   background: transparent !important;
 }
 
 [data-theme="light"] .project-btn.outline:hover {
-  background: #667eea !important;
+  background: #292A2D !important;
   color: #ffffff !important;
 }
 
@@ -864,7 +864,7 @@
 }
 
 .tech-pill {
-    background: linear-gradient(135deg, var(--primary-color), #667eea);
+    background: linear-gradient(135deg, var(--primary-color), #292A2D);
     color: white;
     padding: 0.4rem 0.8rem;
     border-radius: 15px;
@@ -1122,6 +1122,38 @@
     background: var(--primary-color-dark);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+/* Fix button di light mode */
+[data-theme="light"] .submit-btn {
+    background: #292A2D !important; /* Force primary color */
+    color: white !important;
+    border: none !important;
+}
+
+[data-theme="light"] .submit-btn:hover {
+    background: #5a67d8 !important; /* Sedikit lebih dark untuk hover */
+    color: white !important;
+}
+
+/* Nuclear option - force button colors di semua theme */
+.submit-btn {
+    background: #292A2D !important;
+    color: white !important;
+    border: none !important;
+}
+
+.submit-btn:hover {
+    background: #5a67d8 !important;
+    color: white !important;
+}
+
+/* Force untuk semua state */
+[data-theme="light"] .submit-btn,
+[data-theme="dark"] .submit-btn,
+.submit-btn {
+    background: #292A2D !important;
+    color: white !important;
 }
 
 /* Light Mode Fixes */
