@@ -280,7 +280,7 @@
 
 [data-theme="light"] .work-card .position {
   background: #667eea !important;
-  color: #ffffff !important;
+  color: #000000 !important;
 }
 
 [data-theme="light"] .work-card .work-description {
@@ -378,7 +378,7 @@
   border-radius: 12px !important;
   font-size: 0.8rem !important; /* Perkecil font */
   font-weight: 500;
-  background: #6b7280 !important;
+  background: #292A2D !important;
   color: white !important;
   border: none !important;
   line-height: 1.2;
@@ -387,13 +387,13 @@
 
 /* Untuk light mode */
 [data-theme="light"] .tech-pill {
-  background: #6b7280 !important;
+  background: #292A2D !important;
   color: white !important;
 }
 
 /* Untuk dark mode */
 [data-theme="dark"] .tech-pill {
-  background: #6b7280 !important;
+  background: #292A2D !important;
   color: white !important;
 }
 
@@ -786,14 +786,40 @@
     font-weight: 600;
 }
 
+/* Fix untuk position badge di work experience */
 .position {
-    display: inline-block;
-    background: var(--primary-color);
-    color: white;
-    padding: 0.3rem 0.8rem;
-    border-radius: 6px;
-    font-size: 0.9rem;
-    font-weight: 500;
+  background: #292A2D  !important; /* Indigo-600 - elegant dan professional */
+  color: white !important;
+  padding: 0.3rem 0.8rem !important;
+  border-radius: 6px !important;
+  font-size: 0.9rem !important;
+  font-weight: 600 !important;
+  display: inline-block !important;
+  border: none !important;
+}
+
+/* Force warna di light mode */
+[data-theme="light"] .position {
+  background: #292A2D  !important;
+  color: white !important;
+}
+
+/* Force warna di dark mode */
+[data-theme="dark"] .position {
+  background: #292A2D  !important;
+  color: white !important;
+}
+
+/* Specific untuk work card position */
+.work-card .position {
+  background: #292A2D  !important;
+  color: white !important;
+}
+
+/* Nuclear option - target semua element dengan class position */
+[class*="position"] {
+  background: #292A2D  !important;
+  color: white !important;
 }
 
 /* Work Meta */
