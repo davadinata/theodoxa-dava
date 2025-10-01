@@ -1188,3 +1188,30 @@
         padding-bottom: 1rem;
     }
 }
+
+/* Alternative: Flexbox approach untuk lebih smooth */
+.contact-split-layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.contact-info-side {
+    flex: 1;
+    min-width: 300px; /* Minimum width sebelum wrap */
+}
+
+.contact-form-side {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* Smooth transition antara desktop-mobile */
+@media (max-width: 768px) {
+    .contact-info-side,
+    .contact-form-side {
+        flex: 1 1 100%; /* Force full width di mobile */
+        min-width: auto;
+    }
+}
