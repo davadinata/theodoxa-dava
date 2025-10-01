@@ -1,34 +1,33 @@
 experiences:
   - company: "DataOn"
     position: "Implementation Consultant - Junior"
-    period: "March 3, 2025 – Present"
+    period: "Mar 2025 – Present"
     location: "Tangerang Selatan, Indonesia"
     description: "Implementing and customizing business solutions for clients, providing technical support, and ensuring successful system deployments."
     technologies: ["ColdFusion", "MariaDB", "Go", "React"]
     achievements:
-      - "Successfully implemented HRIS systems for 5+ clients"
+      - "Implemented HRIS systems for 5+ clients"
       - "Reduced deployment time by 30% through process optimization"
       - "Provided training and documentation for client teams"
 
-  - company: "Andi GLobal Soft"
-    position: "Full Stack Developer"
-    period: "May 10 – Sep 10, 2023 (4 months)"
+  - company: "Andi Global Soft"
+    position: "Full Stack Developer (Internship)"
+    period: "May – Sep 2023 (4 months)"
     location: "DI Yogyakarta, Indonesia"
-    description: "Assisted in developing and maintaining web applications, participated in agile development processes."
-    technologies: ["PHP", "HTML/CSS", "Javascript", "Codeigniter"]
+    description: "Assisted in developing and maintaining web applications, and participated in agile development processes."
+    technologies: ["PHP", "HTML/CSS", "JavaScript", "CodeIgniter"]
     achievements:
-      - "Contributed to rebuild company profile website"
+      - "Rebuilt company profile website"
       - "Contributed to internal tools development (Bahana Digital)"
-      - "Learned industry best practices and workflows"
- 
-  - company: "Freelance"
+      - "Adopted industry best practices and workflows"
+
+  - company: "Freelance / Independent Projects"
     position: "Web Developer"
-    period: "2022 - present"
+    period: "2022 – Present"
     location: "Remote"
     description: "Developed responsive websites and web applications for various clients across different industries."
-    technologies: ["PHP", "Laravel", "Codeigniter", "MySQL", "Tailwind CSS"]
+    technologies: ["PHP", "Laravel", "CodeIgniter", "MySQL", "Tailwind CSS"]
     achievements:
       - "Delivered 5+ projects with 100% client satisfaction"
       - "Improved website performance by 40% through optimization"
       - "Created reusable component libraries for faster development"
-
