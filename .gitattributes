@@ -1,0 +1,2 @@
+# build.sh runs on Vercel (Linux); CRLF line endings would break it.
+*.sh text eol=lf
