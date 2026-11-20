@@ -15,12 +15,27 @@ featured_projects:
   #   image: "/images/projects/kanban-board.jpg"
   #   url: "/projects/kanban-board"
   #   github: "https://github.com/davadinata/kanban-board"
-  #   live_demo: "https://kanban.theodoxa.dev"
+  #   live_demo: "https://kanb
+  - title: "UNissi"
+    description: "Multi-tenant SaaS that helps churches manage members, small groups, attendance, offerings, and events in one platform."
+    technologies:
+      ["FastAPI", "PostgreSQL", "React", "TypeScript", "Redis", "Docker"]
+    status: "live"
+    image: "/images/projects/unissi.png"
+    url: "/projects/unissi"
+    live_demo: "https://unissi.id"
+
+more_projects:
+  - title: "Bahana Digital"
+    description: "Admin panel for managing books, book uploads, and events. First built on a custom PHP framework, then rebuilt with CodeIgniter."
+    technologies: ["PHP", "CodeIgniter", "MySQL", "AJAX"]
+    status: "completed"
+    url: "/projects/bahana-digital"
 
   - title: "Andi Global Soft"
     description: "Reinsert content of Andi Global Soft company profile website."
     technologies: ["PHP", "HTML", "Company Profile"]
     status: "completed"
-    image: "/images/projects/ags.png" 
+    image: "/images/projects/ags.png"
     url: "/projects/ags"
     live_demo: "https://www.andiglobalsoft.com/"
