@@ -1,29 +1,43 @@
+{{- /*
+  Renders a list of projects from data/projects.yml.
+  Usage:
+    {{< featured-projects >}}  -> featured_projects (default)
+    {{< featured-projects key="more_projects" title="More Projects" subtitle="..." compact="true" >}}
+  compact="true" hides the card images.
+  The section is skipped entirely when the list is missing or empty.
+*/ -}}
+{{- $key := .Get "key" | default "featured_projects" -}}
+{{- $title := .Get "title" | default "Featured Projects" -}}
+{{- $subtitle := .Get "subtitle" | default "Check out some of my recent work." -}}
+{{- $compact := eq (printf "%v" (.Get "compact")) "true" -}}
+{{- $projects := index .Site.Data.projects $key -}}
+{{- if $projects -}}
 <section class="featured-projects">
     <div class="projects-section-header">
-        <h2>Featured Projects</h2>
-        <p class="projects-subtitle">Check out some of my recent work.</p>
+        <h2>{{ $title }}</h2>
+        <p class="projects-subtitle">{{ $subtitle }}</p>
     </div>
-    
+
     <div class="projects-grid-cards">
-        {{ range .Site.Data.projects.featured_projects }}
+        {{ range $projects }}
         <div class="project-card-item">
             <!-- Tambahkan project image -->
-            {{ if .image }}
+            {{ if and .image (not $compact) }}
             <div class="project-image">
                 <img src="{{ .image }}" alt="{{ .title }}" loading="lazy">
             </div>
             {{ end }}
-            
+
             <div class="project-card-content">
                 <h3 class="project-title">{{ .title }}</h3>
                 <p class="project-description">{{ .description }}</p>
-                
+
                 <div class="project-technologies">
                     {{ range .technologies }}
                     <span class="tech-pill">{{ . }}</span>
                     {{ end }}
                 </div>
-                
+
                 <div class="project-actions">
                     {{ if .live_demo }}
                     <a href="{{ .live_demo }}" class="project-btn primary" target="_blank" rel="noopener">
@@ -35,12 +49,15 @@
                         GitHub
                     </a>
                     {{ end }}
-                    <a href="{{ .url }}" class="project-btn outline">
+                    {{ with .url }}
+                    <a href="{{ . }}" class="project-btn outline">
                         View Detail
                     </a>
+                    {{ end }}
                 </div>
             </div>
         </div>
         {{ end }}
     </div>
 </section>
+{{- end -}}

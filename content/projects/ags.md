@@ -15,6 +15,8 @@ categories: ["projects"]
 lightgallery: true
 featuredImage: "/images/projects/ags.png"  # Absolute path static
 featuredImagePreview: "/images/projects/ags.png"
+cover:
+  image: "/images/projects/ags.png"
 
 toc:
   auto: false
