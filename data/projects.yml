@@ -25,6 +25,14 @@ featured_projects:
     url: "/projects/unissi"
     live_demo: "https://unissi.id"
 
+  - title: "Trip Planner AI"
+    description: "Agentic AI workflow that turns a destination, budget, duration, and interests into a day-by-day itinerary delivered as a PDF."
+    technologies: ["FastAPI", "Celery", "Redis", "Tavily", "OpenRouter", "WeasyPrint"]
+    status: "completed"
+    image: "/images/projects/trip-planner.png"
+    url: "/projects/trip-planner"
+    github: "https://github.com/davadinata/trip-planner"
+
 more_projects:
   - title: "Bahana Digital"
     description: "Admin panel for managing books, book uploads, and events. First built on a custom PHP framework, then rebuilt with CodeIgniter."
