@@ -68,3 +68,10 @@ side_projects:
     technologies: ["Python", "FastAPI", "MySQL", "Go"]
     status: "completed"
     url: "/projects/daily-verse-api"
+
+  - title: "Kalkulator BMI"
+    description: "BMI calculator backed by a Go serverless function that returns the BMI value and category, deployed on Vercel."
+    technologies: ["Go", "HTML", "JavaScript", "Vercel"]
+    status: "completed"
+    url: "/projects/kalkulator-bmi"
+    github: "https://github.com/davadinata/kalkulatorBMI"
