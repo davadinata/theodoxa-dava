@@ -12,6 +12,10 @@ tags: ["php", "codeigniter", "admin-panel"]
 categories: ["projects"]
 
 lightgallery: true
+featuredImage: "/images/projects/bahana-digital.png"
+featuredImagePreview: "/images/projects/bahana-digital.png"
+cover:
+  image: "/images/projects/bahana-digital.png"
 
 toc:
   auto: false
@@ -27,9 +31,10 @@ Bahana Digital is an admin panel for managing a digital book catalog and events.
 
 ## Key Features
 
-- **Books:** manage the book catalog and upload book files.
-- **Events:** create and manage events.
-- **Administration:** admin accounts and a dashboard.
+- **Books:** manage the book catalog and upload book files, with bulk import from Excel and Excel export.
+- **Events:** create and manage events (free or paid) and view each event's participants.
+- **Content:** homepage banners and book category codes.
+- **Administration:** role-based access (admin, administrator, marketing) and a dashboard with catalog statistics.
 - **CodeIgniter version:** adds user and marketing management.
 - **AJAX-driven** list and form pages for a smoother admin experience.
 
