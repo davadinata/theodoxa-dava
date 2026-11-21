@@ -39,3 +39,11 @@ more_projects:
     image: "/images/projects/ags.png"
     url: "/projects/ags"
     live_demo: "https://www.andiglobalsoft.com/"
+
+side_projects:
+  - title: "Todo Apps"
+    description: "Full-stack todo app: a versioned FastAPI REST API with migrations and pagination, plus a React 19 Kanban board."
+    technologies: ["FastAPI", "SQLModel", "Alembic", "React", "Tailwind CSS"]
+    status: "completed"
+    image: "/images/projects/todo-apps.png"
+    url: "/projects/todo-apps"
