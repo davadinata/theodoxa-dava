@@ -62,3 +62,9 @@ side_projects:
     status: "completed"
     image: "/images/projects/todo-apps.png"
     url: "/projects/todo-apps"
+
+  - title: "Daily Verse API"
+    description: "REST API that serves Bible verses: verse of the day, random verse, lookup by reference, and keyword search."
+    technologies: ["Python", "FastAPI", "MySQL", "Go"]
+    status: "completed"
+    url: "/projects/daily-verse-api"
