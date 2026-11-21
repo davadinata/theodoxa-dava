@@ -33,6 +33,13 @@ featured_projects:
     url: "/projects/trip-planner"
     github: "https://github.com/davadinata/trip-planner"
 
+  - title: "FinTrack AI Receipt Scanner"
+    description: "Team project. I built the AI service that turns a photo of a receipt into a ready-to-save transaction using a vision LLM."
+    technologies: ["Python", "FastAPI", "OpenRouter", "Docker", "React"]
+    status: "completed"
+    image: "/images/projects/fintrack-ai.png"
+    url: "/projects/fintrack-ai"
+
 more_projects:
   - title: "Bahana Digital"
     description: "Admin panel for managing books, book uploads, and events. First built on a custom PHP framework, then rebuilt with CodeIgniter."
