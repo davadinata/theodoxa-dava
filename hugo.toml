@@ -159,11 +159,11 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
 
   # website title for Open Graph and Twitter Cards
 
-  title = "My cool site"
+  title = "Theodoxa Davadinata - Software & AI Engineer"
 
   # website description for RSS, SEO, Open Graph and Twitter Cards
 
-  description = "This is my cool site"
+  description = "Portfolio of Theodoxa Davadinata, a software and AI engineer building web applications and AI-powered tools with Python, FastAPI, Go, and React."
 
   # website images for Open Graph and Twitter Cards
 
@@ -299,7 +299,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
 
     # optional site title override for the app when added to an iOS home screen or Android launcher
 
-    title = "My cool site"
+    title = "Theodoxa"
 
     # whether to omit favicon resource links
 
@@ -396,7 +396,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
 
       # subtitle shown in home page (HTML format is supported)
 
-      subtitle = "Web & Data Enthusiast | Lifelong Learner"
+      subtitle = "Software & AI Engineer | Lifelong Learner"
 
       # whether to use typeit animation for subtitle
 
