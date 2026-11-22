@@ -54,6 +54,6 @@ experiences:
       - name: "Tailwind CSS"
         icon: "fab fa-css3-alt"
     achievements:
-      - "Delivered 5+ projects with 100% client satisfaction"
-      - "Improved website performance by 40% through optimization"
-      - "Created reusable component libraries for faster development"
+      - "Delivered 6 client web apps, from an online bookstore and a job portal to a clinic medical-record system"
+      - "Integrated Midtrans payments for online checkout and paid subscriptions"
+      - "Built admin panels so clients can update their own content without touching code"

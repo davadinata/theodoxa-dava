@@ -2,7 +2,7 @@
 title: "About"
 date: 2024-01-15T11:04:49+08:00
 draft: false
-description: "Professional background and expertise of Theodoxa Davadinata"
+description: "Background, skills, and focus areas of Theodoxa Davadinata, a software and AI engineer."
 images: ["/dave.png"]
 
 lightgallery: true
@@ -13,9 +13,11 @@ math:
 
 ## Summary
 
-I am currently serving as an **Implementation Consultant - Junior** at **DataOn**, where I specialize in delivering technology solutions that address complex business challenges. My role involves leveraging technical expertise to implement systems that enhance operational efficiency and drive organizational success.
+I am a software engineer who builds web applications end to end, from APIs and databases to the frontend, and more and more often the AI features inside them.
 
-Concurrently, I am advancing my academic qualifications through a **Master's degree in Information Systems**, deepening my understanding of the intersection between technology and business strategy.
+I currently work as an **Implementation Consultant - Junior** at **DataOn**, implementing and customizing HRIS solutions for clients. Outside work, I build my own products: **UNissi**, a multi-tenant church management SaaS, and AI tools such as an agentic trip planner and a receipt scanner powered by a vision LLM.
+
+I am also pursuing a **Master's degree in Information Systems**, deepening my understanding of how technology and business strategy fit together.
 
 <br>
 
@@ -27,10 +29,13 @@ Concurrently, I am advancing my academic qualifications through a **Master's deg
 
 ### Toolkit:
 
-- <img src="https://cdn.simpleicons.org/php" width="20"/> **PHP (Laravel Framework)** - Enterprise-grade web application development
-- <img src="https://cdn.simpleicons.org/go" width="20"/> **Go** - High-performance backend systems and microservices
-- <img src="https://cdn.simpleicons.org/javascript" width="20"/> **JavaScript Ecosystem** - Modern frontend development with React and Tailwind CSS
-- <img src="https://cdn.simpleicons.org/python" width="20"/> **Python** - Data analysis, automation, and scripting solutions
+- <img src="https://cdn.simpleicons.org/fastapi" width="20"/> **Python & FastAPI** - REST APIs, background jobs with Celery, and LLM-powered services
+- <i class="fas fa-robot fa-fw"></i> **AI Integration** - LLM APIs through OpenRouter, agentic workflows, and structured data extraction from images
+- <img src="https://cdn.simpleicons.org/react" width="20"/> **TypeScript & React** - Modern frontends with Tailwind CSS
+- <img src="https://cdn.simpleicons.org/go" width="20"/> **Go** - Backend services and serverless functions
+- <img src="https://cdn.simpleicons.org/php" width="20"/> **PHP (Laravel, CodeIgniter)** - Client web applications, admin panels, and payment integrations
+- <img src="https://cdn.simpleicons.org/postgresql" width="20"/> **PostgreSQL, MySQL & Redis** - Relational databases, caching, and job queues
+- <img src="https://cdn.simpleicons.org/docker" width="20"/> **Docker** - Containerized development and deployment
 - <img src="/icons/cf.svg" width="20"/> **ColdFusion** - Legacy system maintenance and modernization
 
 <br>
@@ -38,9 +43,9 @@ Concurrently, I am advancing my academic qualifications through a **Master's deg
 ## Development
 
 ### Current Focus Areas:
+- AI Engineering: LLM-powered features and agentic workflows
 - Software Development Best Practices
-- Data Science
-- Development and Operational (DevOps)
+- Development and Operations (DevOps)
 
 <br>
 <br>
