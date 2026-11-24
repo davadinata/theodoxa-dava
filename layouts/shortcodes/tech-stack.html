@@ -1,0 +1,29 @@
+{{- /*
+  Tech stack on the home page, grouped by layer, from data/skills.yml.
+  Replaces the old auto-scrolling logo slider: a static list doesn't move, isn't
+  read twice by screen readers, and doesn't send visitors off to vendor sites.
+*/ -}}
+{{- with .Site.Data.skills.groups -}}
+<section class="tech-stack-section">
+    <div class="section-header">
+        <h2>Tech Stack &amp; Tools</h2>
+        <p class="section-subtitle">What I use most, grouped by layer.</p>
+    </div>
+
+    <div class="tech-groups">
+        {{- range . }}
+        <div class="tech-group">
+            <h3 class="tech-group-title">{{ .name }}</h3>
+            <ul class="tech-list">
+                {{- range .skills }}
+                <li class="tech-item">
+                    <img src="{{ .logo }}" alt="" width="24" height="24" loading="lazy">
+                    <span>{{ .name }}</span>
+                </li>
+                {{- end }}
+            </ul>
+        </div>
+        {{- end }}
+    </div>
+</section>
+{{- end -}}

@@ -1,0 +1,26 @@
+// ==============================
+// Override Variables
+// ==============================
+// Site overrides for LoveIt's SCSS variables. The theme's style.scss imports
+// this file right after its own _variables.scss, so these assignments win and
+// apply to every theme-styled page (posts, lists, the post summary on home).
+// Keep the values in sync with the tokens at the top of assets/css/custom.css.
+
+// One accent: the site is monochrome, so content links use the text color and
+// get an underline from custom.css. The theme's blue (#2d96bd) was 3.4:1 on
+// white, below the WCAG AA minimum of 4.5:1, and its link hover was pink.
+$single-link-color: #161209;
+$single-link-color-dark: #ececee;
+$single-link-hover-color: #000000;
+$single-link-hover-color-dark: #ffffff;
+$global-link-hover-color: #5f6368;
+$pagination-link-color: #161209;
+
+// Secondary text (post dates, categories, summaries): the theme's #a9a9b3 on
+// white and #5d5d5f on the dark background were both about 2.2:1.
+$global-font-secondary-color: #5f6368;
+$global-font-secondary-color-dark: #a3a3ab;
+
+// Blockquote accent bar, previously cyan
+$blockquote-color: #85858b;
+$blockquote-color-dark: #808289;

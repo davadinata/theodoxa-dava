@@ -1,5 +1,5 @@
 ---
-title: "Theodoxa Davadinata - Portfolio"
+title: "Theodoxa Davadinata - Software & AI Engineer"
 description: "Portfolio of Theodoxa Davadinata, a software and AI engineer building web applications and AI-powered tools with Python, FastAPI, Go, and React."
 date: 2024-01-01
 type: "home"
@@ -13,11 +13,11 @@ _“Building web applications end to end, and the AI features inside them.”_
 
 {{< hero-cta >}}
 
-{{< featured-projects id="projects" >}}
+{{< featured-projects id="projects" subtitle="Selected work, each with a write-up of what I built." >}}
 
 {{< workexperience >}}
 
-{{< logo-slider >}}
+{{< tech-stack >}}
 
 {{< featured-projects key="more_projects" title="More Projects" subtitle="Client, freelance, and work projects over the years." compact="true" >}}
 

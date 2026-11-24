@@ -2,13 +2,28 @@
 
 {{- define "content" -}}
     {{- $params := .Scratch.Get "params" -}}
-    <div class="page single special">
+    {{- $isProject := eq .Section "projects" -}}
 
-        {{- /* Cover */ -}}
-        {{- with .Params.cover.image }}
-        <div class="single-cover">
-            <img src="{{ . | absURL }}" alt="cover">
-        </div>
+    {{- /* For project pages: the card entry in data/projects.yml with the same URL,
+           which holds the stack and the live demo / GitHub links. */ -}}
+    {{- $entry := dict -}}
+    {{- if $isProject -}}
+        {{- $self := strings.TrimSuffix "/" .RelPermalink -}}
+        {{- range $group, $list := site.Data.projects -}}
+            {{- range $list -}}
+                {{- if eq (strings.TrimSuffix "/" (.url | default "")) $self -}}
+                    {{- $entry = . -}}
+                {{- end -}}
+            {{- end -}}
+        {{- end -}}
+    {{- end -}}
+
+    <div class="page single{{ if $isProject }} project-page{{ end }}">
+
+        {{- if $isProject }}
+        <a class="back-link" href="{{ "/" | relURL }}#projects">
+            <i class="fas fa-arrow-left fa-fw" aria-hidden="true"></i>All projects
+        </a>
         {{- end }}
 
         {{- /* Title */ -}}
@@ -23,8 +38,66 @@
 
         {{- /* Content */ -}}
         <div class="content" id="content">
+            {{- if $isProject }}
+            <div class="project-header">
+                {{- with .Description }}
+                <p class="project-lead">{{ . }}</p>
+                {{- end }}
+
+                {{- with $entry.technologies }}
+                <div class="project-technologies">
+                    <span class="visually-hidden">Technologies:</span>
+                    {{- range . }}
+                    <span class="tech-pill">{{ . }}</span>
+                    {{- end }}
+                </div>
+                {{- end }}
+
+                {{- if or $entry.live_demo $entry.github }}
+                <div class="project-actions">
+                    {{- with $entry.live_demo }}
+                    <a href="{{ . }}" class="btn btn-primary" target="_blank" rel="noopener">Live Demo</a>
+                    {{- end }}
+                    {{- with $entry.github }}
+                    <a href="{{ . }}" class="btn {{ if $entry.live_demo }}btn-ghost{{ else }}btn-primary{{ end }}" target="_blank" rel="noopener">GitHub</a>
+                    {{- end }}
+                </div>
+                {{- end }}
+            </div>
+            {{- end }}
+
+            {{- /* Cover */ -}}
+            {{- with .Params.cover.image }}
+            {{- /* Intrinsic size from the file in static/, so the browser reserves the space */ -}}
+            {{- $dims := false }}
+            {{- $file := printf "static%s" . }}
+            {{- if fileExists $file }}{{ $dims = imageConfig $file }}{{ end }}
+            <div class="single-cover">
+                <img src="{{ . | absURL }}" alt="{{ $.Params.cover.alt | default (printf "%s preview" $.Title) }}"{{ with $dims }} width="{{ .Width }}" height="{{ .Height }}"{{ end }} fetchpriority="high">
+            </div>
+            {{- end }}
+
             {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
         </div>
+
+        {{- /* Previous / next project, in the projects' weight order. Hugo's naming is
+               reversed: .NextInSection is the page listed above, .PrevInSection the one below. */ -}}
+        {{- if and $isProject (or .PrevInSection .NextInSection) }}
+        <nav class="project-nav" aria-label="More projects">
+            {{- with .NextInSection }}
+            <a class="project-nav-link prev" href="{{ .RelPermalink }}">
+                <span class="project-nav-label"><i class="fas fa-arrow-left fa-fw" aria-hidden="true"></i>Previous project</span>
+                {{ .Title }}
+            </a>
+            {{- end }}
+            {{- with .PrevInSection }}
+            <a class="project-nav-link next" href="{{ .RelPermalink }}">
+                <span class="project-nav-label">Next project<i class="fas fa-arrow-right fa-fw" aria-hidden="true"></i></span>
+                {{ .Title }}
+            </a>
+            {{- end }}
+        </nav>
+        {{- end }}
 
         {{- /* Comment */ -}}
         {{- partial "comment.html" . -}}

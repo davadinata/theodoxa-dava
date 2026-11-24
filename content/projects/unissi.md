@@ -16,6 +16,7 @@ featuredImage: "/images/projects/unissi.png"
 featuredImagePreview: "/images/projects/unissi.png"
 cover:
   image: "/images/projects/unissi.png"
+  alt: "UNissi landing page"
 
 toc:
   auto: false

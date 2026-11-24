@@ -5,10 +5,11 @@
 
    Two theme facts shape the selectors below:
    - Page content, including every home page shortcode, is rendered inside
-     `.single .content`. The theme styles `.single .content h2/h3/p/a/img/strong`
+     `.single .content`. The theme styles `.single .content h2/h3/p/a/img/ul`
      there, plus `[theme=dark]` variants, so component rules that must win are
      prefixed with `.single .content`.
    - Dark mode is `body[theme="dark"]`. The colors live in the tokens below.
+   The theme's own colors (links, secondary text) are set in _override.scss.
    ========================================================================== */
 
 /* Design tokens ------------------------------------------------------------ */
@@ -48,7 +49,107 @@ body[theme="dark"] {
   --shadow-hover: 0 2px 6px rgba(0, 0, 0, 0.35), 0 12px 28px rgba(0, 0, 0, 0.3);
 }
 
-/* Hero (theme partial home/profile.html) ----------------------------------- */
+/* Accessibility helpers ---------------------------------------------------- */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* "Skip to content" link from layouts/_default/baseof.html: hidden until focused */
+a.skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 1000;
+  padding: 0.625rem 1rem;
+  border-radius: 8px;
+  background: var(--primary-color);
+  color: var(--on-primary);
+  font-weight: 600;
+  text-decoration: none;
+  transform: translateY(-200%);
+}
+
+a.skip-link:focus,
+a.skip-link:hover {
+  color: var(--on-primary);
+  transform: none;
+}
+
+/* The skip link focuses <main>; it is a container, not a control */
+#main-content:focus {
+  outline: none;
+}
+
+/* Click and tap targets ------------------------------------------------------
+   Header search (theme partial header.html): collapsed, the theme shows a
+   transparent 40px input under the 20px search icon link, so there were two
+   overlapping targets and a keyboard stop with no visible focus. The input stays
+   hidden until the theme opens the search (it adds .open to #header-desktop
+   before focusing the input), and the icon link widens to 24px in place. */
+#header-desktop:not(.open) #search-input-desktop {
+  visibility: hidden;
+}
+
+#search-toggle-desktop {
+  margin-left: -2px;
+  padding: 0 2px;
+}
+
+/* Social icons under the hero: a 44px target around each icon */
+.home .home-profile .links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+}
+
+/* Tag links: padding on an inline link grows its click area, not the line */
+.post-tags a {
+  padding: 0.25rem 0;
+}
+
+/* Text links. The site has one accent (near-black), so links in running text are
+   underlined to stay distinguishable from the text around them. */
+.single .content :is(p, li, td, blockquote) a,
+.single .content .contact-text a,
+.single .post-meta a,
+.single .post-footer a,
+.home[data-home] .summary .post-footer > a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--control-border);
+  text-underline-offset: 0.2em;
+}
+
+.single .content :is(p, li, td, blockquote) a:hover,
+.single .content .contact-text a:hover,
+.single .post-meta a:hover,
+.single .post-footer a:hover,
+.home[data-home] .summary .post-footer > a:hover {
+  text-decoration-color: currentColor;
+}
+
+/* Markdown headings on single pages: the theme leaves them the body text color,
+   which in dark mode made them as gray as the paragraphs */
+.page.single .content > :is(h2, h3, h4, h5, h6) {
+  color: var(--heading-color);
+}
+
+/* The "#" and "|" marks the theme adds before content headings */
+.page.single .content > :is(h2, h3, h4, h5, h6) > .header-mark::before {
+  color: var(--muted-color);
+}
+
+/* Hero (layouts/partials/home/profile.html) -------------------------------- */
 .home .home-profile .home-title {
   font-size: clamp(2rem, 1.25rem + 2.5vw, 2.75rem);
   line-height: 1.15;
@@ -71,8 +172,10 @@ body[theme="dark"] {
   margin-top: 1.5rem;
 }
 
-/* Buttons ------------------------------------------------------------------ */
-.single .content a.btn {
+/* Buttons ------------------------------------------------------------------
+   Links styled as buttons, plus the non-interactive "View Details" span on
+   project cards (the card itself is the link). */
+.single .content :is(a, span).btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -88,13 +191,14 @@ body[theme="dark"] {
   transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
-.single .content a.btn-primary {
+.single .content :is(a, span).btn-primary {
   background: var(--primary-color);
   border-color: var(--primary-color);
   color: var(--on-primary);
 }
 
-.single .content a.btn-primary:hover {
+.single .content a.btn-primary:hover,
+.single .content .project-card-item:hover span.btn-primary {
   background: var(--primary-hover);
   border-color: var(--primary-hover);
   color: var(--on-primary);
@@ -120,10 +224,15 @@ body[theme="dark"] {
 /* Sections ----------------------------------------------------------------- */
 .featured-projects,
 .work-experience-section,
-.skills-slider-section,
+.tech-stack-section,
 .recent-posts {
   margin: 3.5rem 0;
   scroll-margin-top: 5rem; /* clears the fixed desktop header when jumping to #projects */
+}
+
+/* The theme renders the post list right after this heading, with its own top padding */
+.recent-posts {
+  margin-bottom: 0;
 }
 
 .single .content .section-header,
@@ -159,8 +268,7 @@ body[theme="dark"] {
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.project-card-item:hover,
-.work-card:hover {
+.project-card-item:hover {
   border-color: var(--control-border);
   box-shadow: var(--shadow-hover);
 }
@@ -190,6 +298,13 @@ body[theme="dark"] {
 .single .content .tech-pill i {
   font-size: 0.75rem;
   opacity: 0.85;
+}
+
+/* "+2" chip for technologies beyond the first four on a card */
+.single .content .tech-pill-more {
+  border: 1px solid var(--control-border);
+  background: transparent;
+  color: var(--content-color);
 }
 
 /* Work experience ---------------------------------------------------------- */
@@ -235,24 +350,13 @@ body[theme="dark"] {
 }
 
 .single .content .work-description {
-  margin: 0 0 1.25rem;
+  margin: 0 0 1rem;
   line-height: 1.6;
   color: var(--content-color);
 }
 
-.work-technologies {
-  margin-bottom: 1.25rem;
-}
-
-.single .content .work-card strong {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-size: 0.875rem;
-  color: var(--heading-color);
-}
-
 .single .content .achievements-list {
-  margin: 0;
+  margin: 0 0 1.25rem;
   padding-left: 1.2rem;
 }
 
@@ -282,6 +386,7 @@ body[theme="dark"] {
 }
 
 .project-card-item {
+  position: relative; /* containing block for the stretched .project-link */
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -315,6 +420,34 @@ body[theme="dark"] {
   text-wrap: balance;
 }
 
+/* The title link covers the whole card, so the card is one click target */
+.single .content .project-title a.project-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.single .content .project-title a.project-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+}
+
+.single .content .project-card-item:hover .project-title a.project-link {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.single .content .project-title a.project-link:focus-visible {
+  outline: none;
+}
+
+.single .content .project-title a.project-link:focus-visible::after {
+  outline: 2px solid var(--primary-color);
+  outline-offset: -2px; /* inside the card, which clips overflow */
+}
+
 .single .content .project-card-item .project-description {
   margin: 0 0 1rem;
   line-height: 1.6;
@@ -332,8 +465,14 @@ body[theme="dark"] {
   margin-top: auto;
 }
 
-.single .content .project-actions a.btn {
+.single .content .project-actions :is(a, span).btn {
   flex: 1 1 8rem;
+}
+
+/* Live Demo / GitHub sit above the stretched card link */
+.single .content .project-card-item .project-actions a.btn {
+  position: relative;
+  z-index: 1;
 }
 
 @media (min-width: 768px) {
@@ -360,7 +499,7 @@ body[theme="dark"] {
     border-radius: 8px;
   }
 
-  .single .content .project-actions a.btn {
+  .single .content .project-actions :is(a, span).btn {
     flex: 0 1 auto;
   }
 
@@ -391,92 +530,167 @@ body[theme="dark"] {
   }
 }
 
-/* Cover image on project detail pages (layouts/_default/single.html renders it
-   outside .content, so the theme's content image rules don't size it) */
-.single-cover img {
+/* Tech stack (shortcode tech-stack.html) ------------------------------------ */
+.tech-groups {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+}
+
+.tech-group {
+  padding: 1.25rem;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  background: var(--card-bg);
+}
+
+.single .content .tech-group-title {
+  margin: 0 0 0.875rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  line-height: 1.3;
+  text-transform: uppercase;
+  color: var(--muted-color);
+}
+
+.single .content .tech-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.single .content .tech-item {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  margin: 0;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--heading-color);
+}
+
+.single .content .tech-item img {
+  display: block;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  min-height: 0;
+  margin: 0;
+  object-fit: contain;
+}
+
+@media (min-width: 768px) {
+  .tech-groups {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .single .content .tech-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Single pages and project detail pages (layouts/_default/single.html) ------ */
+.page.single > .single-title {
+  font-size: clamp(1.75rem, 1.35rem + 1.6vw, 2.5rem);
+  line-height: 1.2;
+  color: var(--heading-color);
+  text-wrap: balance;
+}
+
+.single a.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-top: 1rem;
+  font-size: 0.9375rem;
+  color: var(--muted-color);
+  text-decoration: none;
+}
+
+.single a.back-link:hover {
+  color: var(--heading-color);
+}
+
+.single .content .project-header {
+  margin: 0 0 1.5rem;
+}
+
+.single .content .project-lead {
+  margin: 0 0 1rem;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--content-color);
+}
+
+.single .content .single-cover {
+  margin: 0 0 2rem;
+}
+
+/* The cover sits inside .content, so this has to outrank the theme's content image rule */
+.single .content .single-cover img {
   display: block;
   width: 100%;
   height: auto;
+  margin: 0;
+  border: 1px solid var(--border-color);
   border-radius: 12px;
 }
 
-/* Tech stack logo slider --------------------------------------------------- */
-.slider-container {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  mask: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent);
+.project-nav {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 3rem 0 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
 }
 
-.slider-track {
-  display: flex;
-  width: max-content;
-  animation: scroll 30s linear infinite;
-}
-
-.slider-track:hover {
-  animation-play-state: paused;
-}
-
-.slide-item {
-  flex: 0 0 auto;
-  padding: 0 0.5rem;
-}
-
-.single .content a.skill-logo {
+.single a.project-nav-link {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  min-width: 96px;
-  padding: 0.875rem 1rem;
+  gap: 0.25rem;
+  padding: 1rem 1.25rem;
   border: 1px solid var(--border-color);
   border-radius: 10px;
   background: var(--card-bg);
+  color: var(--heading-color);
+  font-weight: 600;
+  line-height: 1.35;
   text-decoration: none;
   transition: border-color 0.2s ease;
 }
 
-.single .content a.skill-logo:hover {
+.single a.project-nav-link:hover {
   border-color: var(--control-border);
+  color: var(--heading-color);
 }
 
-.single .content .skill-logo img {
-  width: 36px;
-  height: 36px;
-  min-height: 0;
-  margin: 0 0 0.5rem;
-  object-fit: contain;
+.project-nav-link.next {
+  grid-column: 2;
+  align-items: flex-end;
+  text-align: right;
 }
 
-.skill-name {
+.project-nav-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
   font-size: 0.8125rem;
   font-weight: 500;
-  color: var(--content-color);
-  text-align: center;
+  color: var(--muted-color);
 }
 
-@keyframes scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-@media (max-width: 767px) {
-  .slider-container {
-    mask: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+@media (max-width: 479px) {
+  .project-nav {
+    grid-template-columns: minmax(0, 1fr);
   }
 
-  .single .content a.skill-logo {
-    min-width: 80px;
-    padding: 0.75rem;
-  }
-
-  .single .content .skill-logo img {
-    width: 32px;
-    height: 32px;
+  .project-nav-link.next {
+    grid-column: auto;
   }
 }
 
@@ -521,7 +735,6 @@ body[theme="dark"] {
 
 .contact-item {
   display: flex;
-  flex-wrap: wrap;
   align-items: flex-start;
   gap: 0.75rem;
   margin-bottom: 1.25rem;
@@ -657,5 +870,22 @@ body[theme="dark"] {
   .contact-info-side,
   .contact-form-side {
     padding: 1.25rem;
+  }
+}
+
+/* Reduced motion ----------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .single .content :is(a, span).btn,
+  .project-card-item,
+  .work-card,
+  .single a.project-nav-link,
+  .form-group input,
+  .form-group textarea,
+  .submit-btn {
+    transition: none;
+  }
+
+  .submit-btn:hover {
+    transform: none;
   }
 }

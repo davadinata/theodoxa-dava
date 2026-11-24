@@ -1,44 +1,33 @@
-skills:
-  - name: "Python"
-    logo: "https://cdn.simpleicons.org/python/3776AB"
-    url: "https://www.python.org/"
+# Tech stack on the home page (layouts/shortcodes/tech-stack.html), grouped by layer.
+# Each group renders as one column; keep the lists short so visitors can scan them.
+groups:
+  - name: "Backend"
+    skills:
+      - name: "Python"
+        logo: "https://cdn.simpleicons.org/python/3776AB"
+      - name: "FastAPI"
+        logo: "https://cdn.simpleicons.org/fastapi/009688"
+      - name: "Go"
+        logo: "https://cdn.simpleicons.org/go/00ADD8"
+      - name: "PHP"
+        logo: "https://cdn.simpleicons.org/php/777BB4"
 
-  - name: "FastAPI"
-    logo: "https://cdn.simpleicons.org/fastapi/009688"
-    url: "https://fastapi.tiangolo.com/"
+  - name: "Frontend"
+    skills:
+      - name: "TypeScript"
+        logo: "https://cdn.simpleicons.org/typescript/3178C6"
+      - name: "React"
+        logo: "https://cdn.simpleicons.org/react/61DAFB"
+      - name: "Tailwind CSS"
+        logo: "https://cdn.simpleicons.org/tailwindcss/06B6D4"
 
-  - name: "TypeScript"
-    logo: "https://cdn.simpleicons.org/typescript/3178C6"
-    url: "https://www.typescriptlang.org/"
-
-  - name: "React"
-    logo: "https://cdn.simpleicons.org/react/61DAFB"
-    url: "https://reactjs.org/"
-
-  - name: "Go"
-    logo: "https://cdn.simpleicons.org/go/00ADD8"
-    url: "https://golang.org/"
-
-  - name: "PHP"
-    logo: "https://cdn.simpleicons.org/php/777BB4"
-    url: "https://www.php.net/"
-
-  - name: "PostgreSQL"
-    logo: "https://cdn.simpleicons.org/postgresql/4169E1"
-    url: "https://www.postgresql.org/"
-
-  - name: "MySQL"
-    logo: "https://cdn.simpleicons.org/mysql/4479A1"
-    url: "https://www.mysql.com/"
-
-  - name: "Redis"
-    logo: "https://cdn.simpleicons.org/redis/FF4438"
-    url: "https://redis.io/"
-
-  - name: "Docker"
-    logo: "https://cdn.simpleicons.org/docker/2496ED"
-    url: "https://www.docker.com/"
-
-  - name: "Tailwind CSS"
-    logo: "https://cdn.simpleicons.org/tailwindcss/06B6D4"
-    url: "https://tailwindcss.com/"
+  - name: "Data & Infrastructure"
+    skills:
+      - name: "PostgreSQL"
+        logo: "https://cdn.simpleicons.org/postgresql/4169E1"
+      - name: "MySQL"
+        logo: "https://cdn.simpleicons.org/mysql/4479A1"
+      - name: "Redis"
+        logo: "https://cdn.simpleicons.org/redis/FF4438"
+      - name: "Docker"
+        logo: "https://cdn.simpleicons.org/docker/2496ED"

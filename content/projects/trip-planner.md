@@ -16,6 +16,7 @@ featuredImage: "/images/projects/trip-planner.png"
 featuredImagePreview: "/images/projects/trip-planner.png"
 cover:
   image: "/images/projects/trip-planner.png"
+  alt: "A trip request turned into a day-by-day PDF itinerary"
 
 toc:
   auto: false

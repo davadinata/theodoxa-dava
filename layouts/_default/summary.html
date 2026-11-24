@@ -1,0 +1,63 @@
+{{- /*
+  Override of themes/LoveIt/layouts/_default/summary.html. The theme uses it only
+  for the post list on the home page, under the "Recent Posts" heading. Changes:
+  - the post title is an h3 (was h1), so it nests under the section's h2;
+  - the summary is plain text (the description, or the trimmed summary), so
+    headings from the post body don't break the page outline;
+  - no cover image, which kept the list from reading as a placeholder.
+*/ -}}
+{{- $params := .Params | merge .Site.Params.page -}}
+
+<article class="single summary" itemscope itemtype="http://schema.org/Article">
+    {{- /* Title */ -}}
+    <h3 class="single-title" itemprop="name headline">
+        <a href="{{ .RelPermalink }}">{{ .Title | emojify }}</a>
+    </h3>
+
+    {{- /* Meta */ -}}
+    <div class="post-meta">
+        {{- $author := $params.author | default .Site.Params.Author.name | default (T "author") -}}
+        {{- $authorLink := $params.authorlink | default .Site.Params.Author.link | default .Site.Home.RelPermalink -}}
+        <span class="post-author">
+            {{- $options := dict "Class" "author" "Destination" $authorLink "Title" "Author" "Rel" "author" "Icon" (dict "Class" "fas fa-user-circle fa-fw") "Content" $author -}}
+            {{- partial "plugin/a.html" $options -}}
+        </span>
+
+        {{- with .Site.Params.dateFormat | default "2006-01-02" | .PublishDate.Format -}}
+            &nbsp;<span class="post-publish">
+                {{- printf `<time datetime="%v">%v</time>` . . | dict "Date" | T "publishedOnDate" | safeHTML -}}
+            </span>
+        {{- end -}}
+
+        {{- $categories := slice -}}
+        {{- range .Params.categories -}}
+            {{- $category := partialCached "function/path.html" . . | printf "/categories/%v" | $.Site.GetPage -}}
+            {{- $categories = $categories | append (printf `<a href="%v"><i class="far fa-folder fa-fw" aria-hidden="true"></i>%v</a>` $category.RelPermalink $category.Title) -}}
+        {{- end -}}
+        {{- with delimit $categories "&nbsp;" -}}
+            &nbsp;<span class="post-category">
+                {{- dict "Categories" . | T "includedInCategories" | safeHTML -}}
+            </span>
+        {{- end -}}
+    </div>
+
+    {{- /* Summary content */ -}}
+    <div class="content">
+        <p>{{ .Description | default (.Summary | plainify | htmlUnescape | truncate 200) }}</p>
+    </div>
+
+    {{- /* Footer */ -}}
+    <div class="post-footer">
+        <a href="{{ .RelPermalink }}">{{ T "readMore" }}<span class="visually-hidden">: {{ .Title }}</span></a>
+        {{- with .Params.tags -}}
+            <div class="post-tags">
+                <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;
+                {{- range $index, $value := . -}}
+                    {{- if gt $index 0 }},&nbsp;{{ end -}}
+                    {{- $tag := partialCached "function/path.html" $value $value | printf "/tags/%v" | $.Site.GetPage -}}
+                    <a href="{{ $tag.RelPermalink }}">{{ $tag.Title }}</a>
+                {{- end -}}
+            </div>
+        {{- end -}}
+    </div>
+</article>

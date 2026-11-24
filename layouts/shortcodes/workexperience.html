@@ -1,9 +1,9 @@
 <section class="work-experience-section">
     <div class="section-header">
         <h2>Work Experience</h2>
-        <p class="section-subtitle">My professional journey</p>
+        <p class="section-subtitle">Roles I've held and what I delivered in each.</p>
     </div>
-    
+
     <div class="work-cards-grid">
         {{ $workData := .Site.Data.workexperience }}
         {{ if $workData }}
@@ -19,31 +19,26 @@
                         <span class="location">{{ .location }}</span>
                     </div>
                 </div>
-                
+
                 <p class="work-description">{{ .description }}</p>
-                
-                {{ if .technologies }}
-                <div class="work-technologies">
-                    <strong>Technologies Used:</strong>
-                    <div class="tech-pills">
-                        {{ range .technologies }}
-                        <span class="tech-pill">
-                            <i class="{{ .icon }}"></i>
-                            {{ .name }}
-                        </span>
-                        {{ end }}
-                    </div>
-                </div>
-                {{ end }}
-                
+
                 {{ if .achievements }}
-                <div class="work-achievements">
-                    <strong>Key Achievements:</strong>
-                    <ul class="achievements-list">
-                        {{ range .achievements }}
-                        <li>{{ . }}</li>
-                        {{ end }}
-                    </ul>
+                <ul class="achievements-list" aria-label="Key achievements">
+                    {{ range .achievements }}
+                    <li>{{ . }}</li>
+                    {{ end }}
+                </ul>
+                {{ end }}
+
+                {{ if .technologies }}
+                <div class="tech-pills">
+                    <span class="visually-hidden">Technologies used:</span>
+                    {{ range .technologies }}
+                    <span class="tech-pill">
+                        <i class="{{ .icon }}" aria-hidden="true"></i>
+                        {{ .name }}
+                    </span>
+                    {{ end }}
                 </div>
                 {{ end }}
             </div>

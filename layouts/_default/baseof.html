@@ -1,0 +1,99 @@
+{{- /*
+  Copy of themes/LoveIt/layouts/_default/baseof.html with four changes:
+  1. The home page <title> uses the title from content/_index.md.
+  2. A "Skip to content" link that targets the main element (id: main-content).
+  3. A script that hides the theme's empty heading anchor links from assistive tech.
+  4. A script that keeps theme-color and color-scheme in step with the page theme.
+  If the theme is updated, re-copy its baseof.html and re-apply these changes.
+*/ -}}
+{{- partial "init.html" . -}}
+
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>{{ block "title" . }}{{ if .IsHome }}{{ .Title | default .Site.Title }}{{ else }}{{ .Site.Title }}{{ end }}{{ end }}</title>
+
+        {{- partial "head/meta.html" . -}}
+        {{- partial "head/link.html" . -}}
+        {{- partial "head/seo.html" . -}}
+    </head>
+    <body data-header-desktop="{{ .Site.Params.header.desktopMode }}" data-header-mobile="{{ .Site.Params.header.mobileMode }}">
+        {{- /* Check theme isDark before body rendering */ -}}
+        {{- $theme := .Site.Params.defaulttheme -}}
+        <script>
+          const query = window.matchMedia('(prefers-color-scheme: dark)');
+          function applyTheme() {
+            let theme = window.localStorage?.getItem('theme') || '{{ $theme }}';
+            let isDark = theme === 'dark' || (theme === 'auto' && query.matches);
+            document.body.setAttribute('theme', isDark? 'dark' : 'light');
+            document.body.setAttribute('cfg-theme', theme);
+          }
+
+          applyTheme();
+          query.addEventListener('change', applyTheme);
+        </script>
+
+        <script>
+          // Keep the browser UI in step with the page theme, including when the
+          // visitor uses the theme switch: theme-color tints the mobile address bar
+          // (light/dark header backgrounds), color-scheme styles scrollbars and
+          // native form controls.
+          function syncBrowserTheme() {
+            const isDark = document.body.getAttribute('theme') === 'dark';
+            document.documentElement.style.colorScheme = isDark ? 'dark' : 'light';
+            const meta = document.querySelector('meta[name="theme-color"]');
+            if (meta) meta.setAttribute('content', isDark ? '#252627' : '{{ .Site.Params.app.themeColor | default "#f8f8f8" }}');
+          }
+          syncBrowserTheme();
+          new MutationObserver(syncBrowserTheme).observe(document.body, { attributes: true, attributeFilter: ['theme'] });
+        </script>
+
+        <a class="skip-link" href="#main-content">Skip to content</a>
+
+        <div id="mask"></div>
+
+        {{- /* Body wrapper */ -}}
+        <div class="wrapper">
+            {{- partial "header.html" . -}}
+            <main class="main" id="main-content" tabindex="-1">
+                <div class="container">
+                    {{- block "content" . }}{{ end -}}
+                </div>
+            </main>
+            {{- partial "footer.html" . -}}
+        </div>
+
+        <div id="fixed-buttons">
+            {{- /* top button */ -}}
+            <a href="#" id="back-to-top" class="fixed-button" title="{{ T `backToTop` }}">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        <div id="fixed-buttons-hidden">
+            {{- /* comment button */ -}}
+            <a href="#" id="view-comments" class="fixed-button" title="{{ T `viewComments` }}">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div>
+
+        {{- /* Load JavaScript scripts and CSS */ -}}
+        {{- partial "assets.html" . -}}
+
+        <script>
+          // The theme's script inserts an empty <a class="header-mark"> into every
+          // content heading. With no text, screen readers announce it as an unnamed
+          // link, so hide it from assistive tech and the tab order. The visible "#"
+          // stays for mouse users who want to copy a section link.
+          window.addEventListener('load', function () {
+            document.querySelectorAll('.header-mark').forEach(function (link) {
+              link.setAttribute('aria-hidden', 'true');
+              link.setAttribute('tabindex', '-1');
+            });
+          });
+        </script>
+    </body>
+</html>

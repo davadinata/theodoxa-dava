@@ -17,6 +17,7 @@ featuredImage: "/images/projects/ags.png"  # Absolute path static
 featuredImagePreview: "/images/projects/ags.png"
 cover:
   image: "/images/projects/ags.png"
+  alt: "Andi Global Soft company website"
 
 toc:
   auto: false

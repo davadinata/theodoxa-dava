@@ -16,6 +16,7 @@ featuredImage: "/images/projects/todo-apps.png"
 featuredImagePreview: "/images/projects/todo-apps.png"
 cover:
   image: "/images/projects/todo-apps.png"
+  alt: "Todo Apps Kanban board with Pending, Ongoing, and Done columns"
 
 toc:
   auto: false

@@ -1,16 +1,22 @@
 {{- /*
   Renders a list of projects from data/projects.yml.
   Usage:
-    {{< featured-projects id="projects" >}}  -> featured_projects (default)
+    {{< featured-projects id="projects" subtitle="..." >}}  -> featured_projects (default)
     {{< featured-projects key="more_projects" title="More Projects" subtitle="..." compact="true" >}}
   compact="true" hides the card images and lays the cards out in two columns.
   id sets the section anchor (the hero "View Projects" button links to #projects).
   The section is skipped entirely when the list is missing or empty.
+
+  The whole card links to the project page: the title link stretches over the card
+  (see .project-link in custom.css). "View Details" only looks like a button, so the
+  card has one link per destination for keyboard and screen reader users. Live Demo
+  and GitHub sit above the stretched link and stay separately clickable.
 */ -}}
 {{- $key := .Get "key" | default "featured_projects" -}}
 {{- $title := .Get "title" | default "Featured Projects" -}}
 {{- $subtitle := .Get "subtitle" | default "Check out some of my recent work." -}}
 {{- $compact := eq (printf "%v" (.Get "compact")) "true" -}}
+{{- $maxPills := 4 -}} {{- /* pills shown before a "+N" chip when a card lists more than five */ -}}
 {{- $projects := index .Site.Data.projects $key -}}
 {{- if $projects -}}
 <section class="featured-projects{{ if $compact }} is-compact{{ end }}"{{ with .Get "id" }} id="{{ . }}"{{ end }}>
@@ -20,24 +26,47 @@
     </div>
 
     <div class="projects-grid-cards">
-        {{ range $projects }}
+        {{ range $i, $project := $projects }}
         {{- $showImage := and .image (not $compact) }}
         <div class="project-card-item{{ if $showImage }} has-image{{ end }}">
             {{ if $showImage }}
+            {{- /* Intrinsic size from the file in static/, so the browser can reserve
+                   the space before the image loads (no layout shift). The first card
+                   is near the top of the page, so it loads first instead of lazily. */ -}}
+            {{- $dims := false }}
+            {{- $file := printf "static%s" .image }}
+            {{- if fileExists $file }}{{ $dims = imageConfig $file }}{{ end }}
             <div class="project-image">
-                <img src="{{ .image }}" alt="{{ .title }}" loading="lazy">
+                <img src="{{ .image }}" alt=""{{ with $dims }} width="{{ .Width }}" height="{{ .Height }}"{{ end }}{{ if eq $i 0 }} fetchpriority="high"{{ else }} loading="lazy"{{ end }}>
             </div>
             {{ end }}
 
             <div class="project-card-content">
-                <h3 class="project-title">{{ .title }}</h3>
+                <h3 class="project-title">
+                    {{- with .url -}}
+                    <a class="project-link" href="{{ . }}">{{ $project.title }}</a>
+                    {{- else -}}
+                    {{ .title }}
+                    {{- end -}}
+                </h3>
                 <p class="project-description">{{ .description }}</p>
 
+                {{- with .technologies }}
+                {{- /* Up to five pills; beyond that, four plus a "+N" chip (a "+1" chip
+                       would take the same space as the pill it hides). */ -}}
+                {{- $overflow := gt (len .) (add $maxPills 1) }}
                 <div class="project-technologies">
-                    {{ range .technologies }}
+                    <span class="visually-hidden">Technologies:</span>
+                    {{- range cond $overflow (first $maxPills .) . }}
                     <span class="tech-pill">{{ . }}</span>
-                    {{ end }}
+                    {{- end }}
+                    {{- if $overflow }}
+                    {{- with after $maxPills . }}
+                    <span class="tech-pill tech-pill-more" title="{{ delimit . ", " }}">+{{ len . }}<span class="visually-hidden"> more: {{ delimit . ", " }}</span></span>
+                    {{- end }}
+                    {{- end }}
                 </div>
+                {{- end }}
 
                 <div class="project-actions">
                     {{ if .live_demo }}
@@ -50,10 +79,8 @@
                         GitHub
                     </a>
                     {{ end }}
-                    {{ with .url }}
-                    <a href="{{ . }}" class="btn btn-primary">
-                        View Detail
-                    </a>
+                    {{ if .url }}
+                    <span class="btn btn-primary" aria-hidden="true">View Details</span>
                     {{ end }}
                 </div>
             </div>

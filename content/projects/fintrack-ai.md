@@ -16,6 +16,7 @@ featuredImage: "/images/projects/fintrack-ai.png"
 featuredImagePreview: "/images/projects/fintrack-ai.png"
 cover:
   image: "/images/projects/fintrack-ai.png"
+  alt: "A shopping receipt converted into a JSON transaction"
 
 toc:
   auto: false

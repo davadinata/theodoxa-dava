@@ -21,22 +21,18 @@ I am also pursuing a **Master's degree in Information Systems**, deepening my un
 
 <br>
 
-> "Excellence in software development is not merely about writing code, but about crafting solutions that are robust, scalable, and aligned with business objectives."
-
-<br>
-
 ## Expertise
 
 ### Toolkit:
 
-- <img src="https://cdn.simpleicons.org/fastapi" width="20"/> **Python & FastAPI** - REST APIs, background jobs with Celery, and LLM-powered services
-- <i class="fas fa-robot fa-fw"></i> **AI Integration** - LLM APIs through OpenRouter, agentic workflows, and structured data extraction from images
-- <img src="https://cdn.simpleicons.org/react" width="20"/> **TypeScript & React** - Modern frontends with Tailwind CSS
-- <img src="https://cdn.simpleicons.org/go" width="20"/> **Go** - Backend services and serverless functions
-- <img src="https://cdn.simpleicons.org/php" width="20"/> **PHP (Laravel, CodeIgniter)** - Client web applications, admin panels, and payment integrations
-- <img src="https://cdn.simpleicons.org/postgresql" width="20"/> **PostgreSQL, MySQL & Redis** - Relational databases, caching, and job queues
-- <img src="https://cdn.simpleicons.org/docker" width="20"/> **Docker** - Containerized development and deployment
-- <img src="/icons/cf.svg" width="20"/> **ColdFusion** - Legacy system maintenance and modernization
+- <img src="https://cdn.simpleicons.org/fastapi" alt="" width="20" height="20"/> **Python & FastAPI** - REST APIs, background jobs with Celery, and LLM-powered services
+- <i class="fas fa-robot fa-fw" aria-hidden="true"></i> **AI Integration** - LLM APIs through OpenRouter, agentic workflows, and structured data extraction from images
+- <img src="https://cdn.simpleicons.org/react" alt="" width="20" height="20"/> **TypeScript & React** - Modern frontends with Tailwind CSS
+- <img src="https://cdn.simpleicons.org/go" alt="" width="20" height="20"/> **Go** - Backend services and serverless functions
+- <img src="https://cdn.simpleicons.org/php" alt="" width="20" height="20"/> **PHP (Laravel, CodeIgniter)** - Client web applications, admin panels, and payment integrations
+- <img src="https://cdn.simpleicons.org/postgresql" alt="" width="20" height="20"/> **PostgreSQL, MySQL & Redis** - Relational databases, caching, and job queues
+- <img src="https://cdn.simpleicons.org/docker" alt="" width="20" height="20"/> **Docker** - Containerized development and deployment
+- <img src="/icons/cf.svg" alt="" width="20" height="20"/> **ColdFusion** - Legacy system maintenance and modernization
 
 <br>
 

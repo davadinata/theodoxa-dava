@@ -48,8 +48,8 @@ more_projects:
     url: "/projects/bahana-digital"
 
   - title: "Andi Global Soft"
-    description: "Reinsert content of Andi Global Soft company profile website."
-    technologies: ["PHP", "HTML", "Company Profile"]
+    description: "Rebuilt the Andi Global Soft company profile website during my internship and moved its existing content into the new site."
+    technologies: ["PHP", "HTML"]
     status: "completed"
     image: "/images/projects/ags.png"
     url: "/projects/ags"

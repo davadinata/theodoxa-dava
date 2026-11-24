@@ -16,6 +16,7 @@ featuredImage: "/images/projects/bahana-digital.png"
 featuredImagePreview: "/images/projects/bahana-digital.png"
 cover:
   image: "/images/projects/bahana-digital.png"
+  alt: "Bahana Digital admin dashboard"
 
 toc:
   auto: false
