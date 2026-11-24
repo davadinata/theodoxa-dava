@@ -1091,7 +1091,8 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
 
   [params.cookieconsent]
 
-    enable = true
+    # off: no analytics ID is set above, so the site sets no tracking cookies to ask consent for
+    enable = false
 
     # text strings used for Cookie consent banner
 

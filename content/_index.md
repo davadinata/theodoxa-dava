@@ -11,14 +11,13 @@ _“Building web applications end to end, and the AI features inside them.”_
 
 </div>
 
+{{< hero-cta >}}
 
-
+{{< featured-projects id="projects" >}}
 
 {{< workexperience >}}
 
 {{< logo-slider >}}
-
-{{< featured-projects >}}
 
 {{< featured-projects key="more_projects" title="More Projects" subtitle="Client, freelance, and work projects over the years." compact="true" >}}
 

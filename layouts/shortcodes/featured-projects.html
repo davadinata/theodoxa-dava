@@ -1,9 +1,10 @@
 {{- /*
   Renders a list of projects from data/projects.yml.
   Usage:
-    {{< featured-projects >}}  -> featured_projects (default)
+    {{< featured-projects id="projects" >}}  -> featured_projects (default)
     {{< featured-projects key="more_projects" title="More Projects" subtitle="..." compact="true" >}}
-  compact="true" hides the card images.
+  compact="true" hides the card images and lays the cards out in two columns.
+  id sets the section anchor (the hero "View Projects" button links to #projects).
   The section is skipped entirely when the list is missing or empty.
 */ -}}
 {{- $key := .Get "key" | default "featured_projects" -}}
@@ -12,7 +13,7 @@
 {{- $compact := eq (printf "%v" (.Get "compact")) "true" -}}
 {{- $projects := index .Site.Data.projects $key -}}
 {{- if $projects -}}
-<section class="featured-projects">
+<section class="featured-projects{{ if $compact }} is-compact{{ end }}"{{ with .Get "id" }} id="{{ . }}"{{ end }}>
     <div class="projects-section-header">
         <h2>{{ $title }}</h2>
         <p class="projects-subtitle">{{ $subtitle }}</p>
@@ -20,9 +21,9 @@
 
     <div class="projects-grid-cards">
         {{ range $projects }}
-        <div class="project-card-item">
-            <!-- Tambahkan project image -->
-            {{ if and .image (not $compact) }}
+        {{- $showImage := and .image (not $compact) }}
+        <div class="project-card-item{{ if $showImage }} has-image{{ end }}">
+            {{ if $showImage }}
             <div class="project-image">
                 <img src="{{ .image }}" alt="{{ .title }}" loading="lazy">
             </div>
@@ -40,17 +41,17 @@
 
                 <div class="project-actions">
                     {{ if .live_demo }}
-                    <a href="{{ .live_demo }}" class="project-btn primary" target="_blank" rel="noopener">
+                    <a href="{{ .live_demo }}" class="btn btn-ghost" target="_blank" rel="noopener">
                         Live Demo
                     </a>
                     {{ end }}
                     {{ if .github }}
-                    <a href="{{ .github }}" class="project-btn secondary" target="_blank" rel="noopener">
+                    <a href="{{ .github }}" class="btn btn-ghost" target="_blank" rel="noopener">
                         GitHub
                     </a>
                     {{ end }}
                     {{ with .url }}
-                    <a href="{{ . }}" class="project-btn outline">
+                    <a href="{{ . }}" class="btn btn-primary">
                         View Detail
                     </a>
                     {{ end }}
